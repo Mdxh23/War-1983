@@ -10,10 +10,28 @@ import Foundation
 //print("Hello, World!")
 
 // Define your game logic here
+
+// Define the "I Declare War" game logic here
 func playGame() {
-    let plays = ["Play 1", "Play 2", "Play 3"] // Replace with your actual game plays
-    for play in plays {
-        print(play)
+    let deck = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
+    let suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
+    
+    var player1Deck = deck.shuffled()
+    var player2Deck = deck.shuffled()
+    
+    while !player1Deck.isEmpty && !player2Deck.isEmpty {
+        let player1Card = player1Deck.removeFirst()
+        let player2Card = player2Deck.removeFirst()
+        
+        print("Player 1: \(player1Card) of \(suits.randomElement()!)")
+        print("Player 2: \(player2Card) of \(suits.randomElement()!)")
+        print("-------------------")
+    }
+    
+    if player1Deck.isEmpty {
+        print("Player 2 wins!")
+    } else {
+        print("Player 1 wins!")
     }
 }
 
@@ -24,5 +42,6 @@ func main() {
 
 // Run the main function
 main()
+
 
 
